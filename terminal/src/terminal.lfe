@@ -1,0 +1,15 @@
+(defmodule terminal
+  (export all))
+
+(defun my-little_repl ()
+  (io:format "Waiting for keypress...~n")
+  (case (erl_editorio:getch)
+    ((tuple 'ok v) (when (is_atom v))
+      (io:format "got special key: ~p~n" (list v)))
+    ((tuple 'ok "x")
+      (erl_editorio:clear))
+    ((tuple 'ok ch)
+      (io:format "got character ~p~n" (list ch)))
+    ((tuple 'error _)
+      (io:format "oh noez!! got something funny on the input... oh well!~n")))
+  (my-little_repl))

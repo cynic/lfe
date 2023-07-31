@@ -1,0 +1,15 @@
+{application, 'terminal', [
+    {description, "An LFE library"},
+    {vsn, git},
+    {registered, []},
+    {applications, [
+        kernel,
+        stdlib,
+        erl_editorio
+    ]},
+    {env,[]},
+    {modules, [ erl_editorio ]},
+
+    {licenses, ["Apache 2.0"]},
+    {links, []}
+ ]}.
